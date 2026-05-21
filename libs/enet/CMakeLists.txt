@@ -1,21 +1,34 @@
 cmake_minimum_required(VERSION 3.21)
 project(enet)
 
-set(ENET_SOURCES
-    callbacks.c
-    compress.c
-    host.c
-    list.c
-    packet.c
-    peer.c
-    protocol.c
-    win32.c
-    unix.c
-)
+if(WIN32)
+    set(ENET_SOURCES
+        callbacks.c
+        compress.c
+        host.c
+        list.c
+        packet.c
+        peer.c
+        protocol.c
+        win32.c
+    )
+else()
+    set(ENET_SOURCES
+        callbacks.c
+        compress.c
+        host.c
+        list.c
+        packet.c
+        peer.c
+        protocol.c
+        unix.c
+    )
+endif()
 
 add_library(enet STATIC ${ENET_SOURCES})
 
 target_include_directories(enet PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
     ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
