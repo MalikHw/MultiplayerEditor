@@ -10,6 +10,7 @@ set(ENET_SOURCES
     peer.c
     protocol.c
     win32.c
+    unix.c
 )
 
 add_library(enet STATIC ${ENET_SOURCES})
