@@ -21,8 +21,9 @@ target_include_directories(enet PUBLIC
 
 if(WIN32)
     target_link_libraries(enet PUBLIC ws2_32 winmm ws2_32)
-    target_compile_definitions(enet PUBLIC -DHAS_SOCKLEN_T)
 endif()
+
+target_compile_definitions(enet PUBLIC HAS_SOCKLEN_T)
 
 if(MSVC)
     target_compile_options(enet PRIVATE /W0)
