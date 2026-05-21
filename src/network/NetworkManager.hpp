@@ -41,12 +41,12 @@ class NetworkManager{
         bool isConnected() const { return m_peer != nullptr; }
         bool isHost() const { return m_isHost; }
         
-        std::map<uint32_t, gd::string> m_peersInLobby;
+        std::map<uint32_t, std::string> m_peersInLobby;
         std::string getUsername();
 
-        void addPeer(uint32_t id, const gd::string& username);
+        void addPeer(uint32_t id, const std::string& username);
         void removePeer(uint32_t id);
-        void broadcastPeerJoined(uint32_t peerID, const gd::string& username);
+        void broadcastPeerJoined(uint32_t peerID, const std::string& username);
         void broadcastPeerLeft(uint32_t peerID);
         void sendLobbyState(uint32_t targetPeerID = 0); // 0 = send to all
     private:
@@ -54,7 +54,7 @@ class NetworkManager{
         ENetPeer* m_peer;
         
         bool m_isHost;
-        gd::string m_username;
+        std::string m_username;
 
         std::function<void(const uint8_t*, size_t)> m_onReceive;
         std::function<void()> m_onConnect;

@@ -34,7 +34,7 @@ struct PacketHeader{
 
 struct HandshakePacket{
     PacketHeader header;
-    gd::string username;
+    std::string username;
 };
 
 struct ObjectData {

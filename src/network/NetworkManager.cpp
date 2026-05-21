@@ -179,12 +179,12 @@ void NetworkManager::setOnDisconnect(std::function<void()> callback){
     m_onDisconnect = callback;
 }
 
-gd::string NetworkManager::getUsername(){
+std::string NetworkManager::getUsername(){
     m_username = GJAccountManager::get()->m_username;
     return m_username;
 }
 
-void NetworkManager::addPeer(uint32_t id, const gd::string& username){
+void NetworkManager::addPeer(uint32_t id, const std::string& username){
     m_peersInLobby[id] = username;
 }
 
@@ -195,7 +195,7 @@ void NetworkManager::removePeer(uint32_t id){
     }
 }
 
-void NetworkManager::broadcastPeerJoined(uint32_t peerID, const gd::string& username){
+void NetworkManager::broadcastPeerJoined(uint32_t peerID, const std::string& username){
     PeerJoinedPacket packet;
     packet.header.type = PacketType::PEER_JOINED;
     packet.header.timestamp = getCurrentTimestamp();

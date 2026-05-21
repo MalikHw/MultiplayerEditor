@@ -490,7 +490,7 @@ void SyncManager::onLocalObjectAdded(GameObject* obj) {
     std::string uid = generateUID();
     trackObject(uid, obj);
     
-    gd::string gdString = obj->getSaveString(nullptr);
+    std::string gdString = obj->getSaveString(nullptr);
     std::string objString = std::string(gdString);
     
     ObjectStringPacket packet;
@@ -532,7 +532,7 @@ void SyncManager::onLocalObjectModified(GameObject* obj) {
     
     std::string uid = getObjectUid(obj);
     
-    gd::string gdString = obj->getSaveString(nullptr);
+    std::string gdString = obj->getSaveString(nullptr);
     std::string objString = std::string(gdString);
     
     ObjectStringPacket packet;
@@ -642,7 +642,7 @@ void SyncManager::sendFullState() {
     auto editor = getEditorLayer();
     if (!editor) return;
     
-    //gd::string gdLevelString = editor->getLevelString();
+    //std::string gdLevelString = editor->getLevelString();
     //std::string lvlString = std::string(gdLevelString);
 
     log::info("Sending full level string");
@@ -659,7 +659,7 @@ void SyncManager::sendFullState() {
         }
         
         // send this object
-        gd::string gdString = obj->getSaveString(nullptr);
+        std::string gdString = obj->getSaveString(nullptr);
         std::string objString = std::string(gdString);
         
         ObjectStringPacket packet;
