@@ -28,7 +28,6 @@ endif()
 add_library(enet STATIC ${ENET_SOURCES})
 
 target_include_directories(enet PUBLIC
-    ${CMAKE_CURRENT_SOURCE_DIR}/include
     ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
