@@ -15,8 +15,8 @@ set(ENET_SOURCES
 
 add_library(enet STATIC ${ENET_SOURCES})
 
-target_include_directories(enet PUBLIC 
-    ${CMAKE_CURRENT_SOURCE_DIR}/include
+target_include_directories(enet PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
 if(WIN32)
